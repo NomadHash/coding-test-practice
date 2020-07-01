@@ -1,24 +1,22 @@
 function solution(n, lost, reserve) {
-    let lostP = lost
-    let reserveP = reserve
     let answer = n - lost.length;
 
-    lostP.forEach(function (element) {
+    lost.forEach(function (element) {
         for (let i = 0; i < reserve.length; i++) {
-            if (element === Number(reserveP[i])) {
-                lostP[lostP.indexOf(element)] = "g";
-                reserveP[i] = "s";
+            if (element === Number(reserve[i])) {
+                lost[lost.indexOf(element)] = "same1";
+                reserve[i] = "same2";
                 answer++;
                 return;
             }
         }
     });
 
-    lostP.forEach(function (element) {
+    lost.forEach(function (element) {
         for (let i = 0; i < reserve.length; i++) {
-            if (element === Number(reserveP[i]) + 1 || element === Number(reserveP[i]) - 1) {
-                lostP[lostP.indexOf(element)] = "g";
-                reserveP[i] = "s";
+            if (element === Number(reserve[i]) + 1 || element === Number(reserve[i]) - 1) {
+                lost[lost.indexOf(element)] = "same1";
+                reserve[i] = "same2";
                 answer++;
                 return;
             }
